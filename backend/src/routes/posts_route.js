@@ -1,11 +1,15 @@
 const router = require ('express').Router();
-const validation = require ('../controllers/validations');
+const validation = require ('../middleware/validations');
 
-const { Posts } = require ('../config/database');
+const { Posts, Categories } = require ('../config/database');
 
 // Envía todo el listado.
 router.get ('/posts', (req, res) => {
-  Posts.findAll ({ attributes: ['id', 'title', 'image', 'category', 'createdAt'], order: [['createdAt', 'DESC']] })
+  Posts.findAll ({
+    include: {model: Categories, as: "category", attributes: ['category']},
+    attributes: ['id', 'title', 'image', 'createdAt'], 
+    order: [['createdAt', 'DESC']],
+  }) 
     .then (posts => {
       if (posts === {}){
         res.json ({ status: "success", message: "Empty list" });
@@ -20,7 +24,10 @@ router.get ('/posts', (req, res) => {
 
 // Envía un elemento del listado.
 router.get ('/posts/:id', (req, res) => {
-  Posts.findOne ({ where: { id: req.params.id } })
+  Posts.findOne ({ 
+    include: {model: Categories, as: "category", attributes: ['category']},
+    where: { id: req.params.id } 
+  })
     .then (post => {
       if (post === null){
         res.json ({status: "error", message: "Post do not exist"});

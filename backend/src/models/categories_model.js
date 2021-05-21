@@ -1,4 +1,4 @@
-const TABLE = 'post';
+const TABLE = 'category';
 
 module.exports = (sequileze, type) => {
   return sequileze.define(TABLE, {
@@ -7,11 +7,10 @@ module.exports = (sequileze, type) => {
       primaryKey: true,
       autoIncrement: true
     },
-    title: type.STRING,
-    content: type.STRING,
-    image: type.STRING,
-    },
-    {
-      paranoid: true,
-    });
+    category: type.STRING,
+  },
+  {
+    timestamps: false,
+  }
+  );
 }
