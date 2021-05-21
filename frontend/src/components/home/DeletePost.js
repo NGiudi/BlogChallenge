@@ -3,7 +3,12 @@ import { Button, Modal } from '@material-ui/core';
 import { createMuiTheme, MuiThemeProvider, makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 
-const redTheme = createMuiTheme({ palette: { primary: {main: '#d50000'} } });
+const redTheme = createMuiTheme({ 
+  palette: { 
+    primary: {main: '#4caf50'},
+    secondary: {main: '#d32f2f'}
+  } 
+});
 
 const useStyles = makeStyles((theme) => ({
   margin: {
@@ -36,10 +41,9 @@ function ModalDelete (props) {
         <p>Está seguro de eleminar <b>"{data.title}"</b>? Una vez eliminado no podrá ser recuperado.</p>
         
         <div align="center">
-          <Button variant="contained" color="primary" onClick={confirmDelete} className={classes.margin}>Eliminar</Button>
-
           <MuiThemeProvider theme={redTheme}>
-            <Button variant="contained" color="primary" onClick={openCloseModalDelete}>Cancelar</Button>
+            <Button variant="contained" color="primary"   onClick={confirmDelete} className={classes.margin}>Eliminar</Button>
+            <Button variant="contained" color="secondary" onClick={openCloseModalDelete}>Cancelar</Button>
           </MuiThemeProvider>
         </div>
       </div>

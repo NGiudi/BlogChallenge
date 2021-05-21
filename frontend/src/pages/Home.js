@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import AddIcon from '@material-ui/icons/Add';
 
-import GridPostsHome from '../components/home/GridPostsHome';
+import GridPosts from '../components/home/GridPosts';
 import DataContext from '../providers/dataContext';
 
 function Home () {
@@ -17,6 +17,8 @@ function Home () {
   const [countPage, setCountPage] = useState (10);
 
   const goToNewFormPost = () => window.location.href = '/newform';
+
+  const handleChange = (e, value) => setPage(value);
 
   useEffect(() => {
     const getAllPosts = () => {
@@ -33,10 +35,6 @@ function Home () {
 
     getAllPosts ();
   }, [])
-  
-  const handleChange = (e, value) => {
-    setPage(value);
-  };
 
   return (
     <Fragment>
@@ -46,7 +44,8 @@ function Home () {
           <p>Nuevo Post</p>
         </Card>
       </div>
-      <GridPostsHome page={page} loading={loading} postsPerPage={postsPerPage}/>
+
+      <GridPosts page={page} loading={loading} postsPerPage={postsPerPage}/>
       
       <div className="boxPagination">
         <Pagination count={countPage} onChange={handleChange} shape="rounded" size="large"/>

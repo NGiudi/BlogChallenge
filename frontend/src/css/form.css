@@ -1,13 +1,17 @@
 .formTitle{
-    margin: 20px 0px 10px 0px;
-    text-align: center;
+  margin: 20px 0px;
+  text-align: center;
 }
 
 .textfield {
-    padding: 20px 0 5px 0;
+  padding: 20px 0 5px 0;
 }
 
 .boxButton {
-    padding-top: 40px;
-    text-align: center;
+  padding-top: 40px;
+  text-align: center;
+}
+
+.padding-back-icon{
+  padding: 10px 0px 0px 10px;
 }

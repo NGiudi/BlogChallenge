@@ -1,9 +1,10 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import DataProvider from "./providers/DataProvider";
 
-import FormEditPost from './components/forms/FormEditPost';
-import FormNewPost from './components/forms/FormNewPost';
-import DetailPost from './components/detail/DetailPost';
+import FormEditPost from './pages/FormEditPost';
+import FormNewPost from './pages/FormNewPost';
+import DetailPost from './pages/DetailPost';
+import NotFound from './pages/NotFound';
 import Home from './pages/Home';
 
 
@@ -15,7 +16,8 @@ function App() {
           <Route exact path="/" component={Home}/>
           <Route exact path="/detail/:id" component={DetailPost}/>
           <Route exact path="/newform" component={FormNewPost}/>
-          <Route exact path="/editform/:id" component={FormEditPost}/> 
+          <Route exact path="/editform/:id" component={FormEditPost}/>
+          <Route component={NotFound}/> 
         </Switch>
       </BrowserRouter>
     </DataProvider>
