@@ -1,0 +1,49 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-90 {
+  margin: auto;
+  width: 90%;
+}
+
+.w-80 {
+  margin: auto;
+  width: 80%;
+}
+
+.card {
+  margin: auto;
+  max-width: 400px;
+  width: 80%;
+}
+  .titleCard{
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+.modal{
+  background-color: #dadada;
+  box-shadow: 5px 4px 17px -4px #121212;
+  left: 50%;
+  max-width: 350px;
+  padding: 1rem 2rem;
+  position: absolute;
+  top: 50%;  
+  transform: translate(-50%,-50%);
+  width: 80%;
+}
+  .modal h3{
+    font-size: calc(1rem + .4vw);
+    padding: 20px 0;
+    text-align: center;
+  }
+  .modal .inputMaterial {
+    width: 100%;
+  }
